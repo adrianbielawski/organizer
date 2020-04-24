@@ -19,7 +19,7 @@ export class Nav extends React.Component {
                 {
                     tabTitle: 'Calendar',
                 }],
-            activeTab: 1,
+            activeTab: 0,
             newTabForm: false,
         }
     }

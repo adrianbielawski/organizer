@@ -67,7 +67,7 @@ export class EditDay extends React.Component {
             <div className="edit-day" style={style}>
                 <form onSubmit={this.handleSubmit}>
                     <FontAwesomeIcon icon={faTimes} className="remove" onClick={this.handleClose}/>
-                    <label>Break:<input type="time" ref="newBreak" defaultValue="01:00"></input></label>
+                    <label>Break:<input type="time" ref="newBreak" defaultValue="02:00"></input></label>
                     <label>Shift start:<input type="time" ref="newShiftStart" defaultValue="11:00"></input></label>
                     <label>Shift end:<input type="time" ref="newShiftEnd" defaultValue="18:00"></input></label>
                     <button type="submit" className="confirm">

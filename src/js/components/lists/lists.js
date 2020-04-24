@@ -17,27 +17,16 @@ export class Lists extends React.Component {
                 {
                     tabTitle: 'List0',
                     type: 'list',
-                    list: ['dfg', 'dfg', 'dfg', 'dfg', 'dfg', 'dfg', 'dfg', 'dfg', 'dfg', 'dfg', 'dfg', 'dfg', 'dfg', 'dfg', 'dfg', 'dfg', 'dfg', ],
+                    list: ['aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff', 'ggg', 'hhh', 'iii', 'jjj', 'kkk', 'lll', 'mmm', 'nnn', 'ooo', 'ppp', 'rrr'],
                     showSettings: false
                 },
                 {
-                    tabTitle: 'Note2',
+                    tabTitle: 'Note0',
                     type: 'note',
                     list: [],
                     showSettings: false
-                },
-                {
-                    tabTitle: 'List1',
-                    type: 'list',
-                    list: [],
-                    showSettings: false
-                },
-                {
-                    tabTitle: 'List2',
-                    type: 'list',
-                    list: [],
-                    showSettings: false
-                }],
+                }
+            ],
             activeTab: 0,
             newTabForm: false,
         }
@@ -69,7 +58,7 @@ export class Lists extends React.Component {
         let tab = this.state.activeTab;
         const list = this.state.tabs[tab].list;
         list.unshift(item);
-        let newState = Object.assign({}, this.state);
+        let newState = this.state;
         newState.tabs[tab].list = list;
         this.setState(newState);
     }
@@ -79,14 +68,14 @@ export class Lists extends React.Component {
         let newList = this.state.tabs[tab].list.filter((val, index) => {
             return item !== index;
         });
-        let newState = Object.assign({}, this.state);
+        let newState = this.state;
         newState.tabs[tab].list = newList;
         this.setState(newState);
     }
 
     removeTab = () => {
         if (this.state.tabs.length === 1) {
-            alert("You can't remove this tab")
+            alert("You can't remove this tab. Please add new tab before removing this one")
             return
         }
         const tabsLength = this.state.tabs.length - 1;
@@ -108,21 +97,21 @@ export class Lists extends React.Component {
 
     openSettings = () => {
         let tab = this.state.activeTab;
-        let newState = Object.assign({}, this.state);
+        let newState =this.state;
         newState.tabs[tab].showSettings = true;
         this.setState(newState);
     }
 
     closeSettings = () => {
         let tab = this.state.activeTab;
-        let newState = Object.assign({}, this.state);
+        let newState = this.state;
         newState.tabs[tab].showSettings = false;
         this.setState(newState);
     }
 
     changeFont = (color, fontFamily) => {
         let tab = this.state.activeTab;
-        let newState = Object.assign({}, this.state);
+        let newState = this.state;
         newState.tabs[tab].color = color;
         newState.tabs[tab].fontFamily = fontFamily;
         this.setState(newState);
@@ -131,7 +120,7 @@ export class Lists extends React.Component {
     
     changeFontWeight = () => {
         let tab = this.state.activeTab;
-        let newState = Object.assign({}, this.state);
+        let newState = this.state;
         let value = newState.tabs[tab].bold;
         newState.tabs[tab].bold = !value;
         this.setState(newState);        
@@ -139,7 +128,7 @@ export class Lists extends React.Component {
     
     changeFontStyle = () => {
         let tab = this.state.activeTab;
-        let newState = Object.assign({}, this.state);
+        let newState = this.state;
         let value = newState.tabs[tab].italic;
         newState.tabs[tab].italic = !value;
         this.setState(newState);  
@@ -147,7 +136,7 @@ export class Lists extends React.Component {
 
     changeTabTitle = (newTitle) => {
         let tab = this.state.activeTab;
-        let newState = Object.assign({}, this.state);
+        let newState = this.state;
         newState.tabs[tab].tabTitle = newTitle;
         this.setState(newState);
     }

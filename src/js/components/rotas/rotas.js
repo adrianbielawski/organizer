@@ -16,7 +16,7 @@ export class Rotas extends React.Component {
             newTabForm: false,
             tabs: [
                 {
-                    tabTitle: 'New Tab',
+                    tabTitle: 'New Rota',
                     showSettings: false,
                     rotaView: 0,
                     weeks: [
@@ -27,7 +27,7 @@ export class Rotas extends React.Component {
                             days: [
                                 {
                                     dayName: 'Monday',
-                                    breakLength: '01:00',
+                                    breakLength: '00:00',
                                     shiftStart: '00:00',
                                     shiftEnd: '00:00',
                                     dayHours: '0',
@@ -83,7 +83,7 @@ export class Rotas extends React.Component {
                             days: [
                                 {
                                     dayName: 'Monday',
-                                    breakLength: '02:00',
+                                    breakLength: '00:00',
                                     shiftStart: '00:00',
                                     shiftEnd: '00:00',
                                     dayHours: '0',
@@ -137,28 +137,28 @@ export class Rotas extends React.Component {
             ],
         }
     }
-
+/*
     loadData() {
-        fetch('http://192.168.1.168/database/organizer/rotas//rotas.json')
+        fetch('http://192.168.1.168/database/organizer/rotas/rotas.json')
             .then(response => response.json())
             .then(data => {
                 this.setState({tabs: data });
         })
             .catch(err => console.error(this.props.url, err.toString()))
     }
-
+*/
     componentDidMount() {
-        this.loadData();
+        //this.loadData();
         let tab = this.state.activeTab;
-        let thisWeek = this.getNextDay('monday', -7);
-        let nextWeek = this.getNextDay('monday', 7);
+        let thisWeek = this.getWeekCommencing('monday', -7);
+        let nextWeek = this.getWeekCommencing('monday', 7);
         let newState = Object.assign({}, this.state);
         newState.tabs[tab].weeks[0].weekCommencing = thisWeek;
         newState.tabs[tab].weeks[1].weekCommencing = nextWeek;    
         this.setState({newState});
     }
 
-    getNextDay = (dayName, week, excludeToday = true, refDate = new Date()) => {
+    getWeekCommencing = (dayName, week, excludeToday = true, refDate = new Date()) => {
         const dayOfWeek = ["sun","mon","tue","wed","thu","fri","sat"].indexOf(dayName.slice(0,3).toLowerCase());
         if (dayOfWeek < 0) return;
         refDate.setHours(0,0,0,0);
@@ -227,8 +227,137 @@ export class Rotas extends React.Component {
     }
 
     addTab = (tabTitle) => {
-        let thisWeek = this.getNextDay('monday', -7, true);
-        let nextWeek = this.getNextDay('monday', 7, true);
+        let thisWeek = this.getWeekCommencing('monday', -7, true);
+        let nextWeek = this.getWeekCommencing('monday', 7, true);
+        const newTab = {
+            tabTitle: tabTitle,
+            showSettings: false,
+            rotaView: 0,
+            weeks: [
+                {
+                    weekCommencing: thisWeek,
+                    weekHours: 0,
+                    weekIndex: 0,
+                    days: [
+                        {
+                            dayName: 'Monday',
+                            breakLength: '00:00',
+                            shiftStart: '00:00',
+                            shiftEnd: '00:00',
+                            dayHours: '0',
+                        },
+                        {
+                            dayName: 'Tuesday',
+                            breakLength: '00:00',
+                            shiftStart: '00:00',
+                            shiftEnd: '00:00',
+                            dayHours: '0',
+                        },
+                        {
+                            dayName: 'Wednesday',
+                            breakLength: '00:00',
+                            shiftStart: '00:00',
+                            shiftEnd: '00:00',
+                            dayHours: '0',
+                        },
+                        {
+                            dayName: 'Thursday',
+                            breakLength: '00:00',
+                            shiftStart: '00:00',
+                            shiftEnd: '00:00',
+                            dayHours: '0',
+                        },
+                        {
+                            dayName: 'Friday',
+                            breakLength: '00:00',
+                            shiftStart: '00:00',
+                            shiftEnd: '00:00',
+                            dayHours: '0',
+                        },
+                        {
+                            dayName: 'Saturday',
+                            breakLength: '00:00',
+                            shiftStart: '00:00',
+                            shiftEnd: '00:00',
+                            dayHours: '0',
+                        },
+                        {
+                            dayName: 'Sunday',
+                            breakLength: '00:00',
+                            shiftStart: '00:00',
+                            shiftEnd: '00:00',
+                            dayHours: '0',
+                        },
+                    ],
+                },
+                {
+                    weekCommencing: nextWeek,
+                    weekHours: 0,
+                    weekIndex: 1,
+                    days: [
+                        {
+                            dayName: 'Monday',
+                            breakLength: '00:00',
+                            shiftStart: '00:00',
+                            shiftEnd: '00:00',
+                            dayHours: '0',
+                        },
+                        {
+                            dayName: 'Tuesday',
+                            breakLength: '00:00',
+                            shiftStart: '00:00',
+                            shiftEnd: '00:00',
+                            dayHours: '0',
+                        },
+                        {
+                            dayName: 'Wednesday',
+                            breakLength: '00:00',
+                            shiftStart: '00:00',
+                            shiftEnd: '00:00',
+                            dayHours: '0',
+                        },
+                        {
+                            dayName: 'Thursday',
+                            breakLength: '00:00',
+                            shiftStart: '00:00',
+                            shiftEnd: '00:00',
+                            dayHours: '0',
+                        },
+                        {
+                            dayName: 'Friday',
+                            breakLength: '00:00',
+                            shiftStart: '00:00',
+                            shiftEnd: '00:00',
+                            dayHours: '0',
+                        },
+                        {
+                            dayName: 'Saturday',
+                            breakLength: '00:00',
+                            shiftStart: '00:00',
+                            shiftEnd: '00:00',
+                            dayHours: '0',
+                        },
+                        {
+                            dayName: 'Sunday',
+                            breakLength: '00:00',
+                            shiftStart: '00:00',
+                            shiftEnd: '00:00',
+                            dayHours: '0',
+                        },
+                    ],
+                },
+            ],
+        }
+
+        let newTabs =  this.state.tabs;
+        newTabs.push(newTab);
+        let newActiveTab = newTabs.length -1;
+        this.setState({activeTab: newActiveTab, tabs: newTabs})
+        
+
+        /*
+        let thisWeek = this.getWeekCommencing('monday', -7, true);
+        let nextWeek = this.getWeekCommencing('monday', 7, true);
         fetch('http://192.168.1.168/database/organizer/rotas/new-rota-tab.json')
             .then(response => response.json())
             .then(data => {
@@ -237,15 +366,16 @@ export class Rotas extends React.Component {
                 data.weeks[1].weekCommencing = nextWeek;
                 let newTabs =  this.state.tabs;
                 newTabs.push(data);
-                let length = newTabs.length -1;
-                this.setState({activeTab: length, tabs: newTabs})
+                let newActiveTab = newTabs.length -1;
+                this.setState({activeTab: newActiveTab, tabs: newTabs})
         })
             .catch(err => console.error(this.props.url, err.toString()))
+        */
     }
 
     removeTab = () => {
         if (this.state.tabs.length === 1) {
-            alert("You can't remove this tab")
+            alert("You can't remove this tab. Please add new tab before removing this one")
             return
         }
         const tabsLength = this.state.tabs.length - 1;
@@ -267,28 +397,28 @@ export class Rotas extends React.Component {
 
     openSettings = () => {
         let tab = this.state.activeTab;
-        let newState = Object.assign({}, this.state);
+        let newState = this.state;
         newState.tabs[tab].showSettings = true;
         this.setState(newState);
     }
 
     closeSettings = () => {
         let tab = this.state.activeTab;
-        let newState = Object.assign({}, this.state);
+        let newState = this.state;
         newState.tabs[tab].showSettings = false;
         this.setState(newState);
     }
 
     changeTabTitle = (newTitle) => {
         let tab = this.state.activeTab;
-        let newState = Object.assign({}, this.state);
+        let newState =  this.state;
         newState.tabs[tab].tabTitle = newTitle;
         this.setState(newState);
     }
 
     changeView = (value) => {
         let tab = this.state.activeTab;
-        let newState = Object.assign({}, this.state);
+        let newState = this.state;
         newState.tabs[tab].rotaView = value;
         this.setState(newState);
     }
