@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+#root {
+  margin: 0 auto;
+  max-width: 800px;
+  background: #fffbe4;
+}
+
+.App {
+  padding: 5px 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  height: 100%;
+}
+
+button,
+.button {
+  border: 1px solid #f8c668;
+  background: #fffbe4;
+  height: 35px;
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+}
+
+.confirm {
+  color: rgb(0, 177, 0);
+  width: 25px;
+  height: 25px;
+  font-weight: 900;
+  font-size: 1.2em;
+  line-height: 0;
+  padding: 2px 0 0 0;
+  border: 1px solid #f8c668;
+  border-radius: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.main-content .remove {
+    color: #f00;
+    width: 25px;
+    height: 25px;
+    padding: 1px;
+    font-weight: 700;
+    border: 1px solid #f8c668;
+    border-radius: 50%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+input {
+   padding: 3px;
+   height: 35px;
+   width: 100%;
+   border: 1px solid #f8c668;
+   background: #fffbe4;
+   box-sizing: border-box;
+   outline: none;
+}
+
+.nav {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.nav li {
+  list-style: none;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 0 1px 0 0;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+}
+
+.nav li.inactive {
+  background: #ffe0a8;
+  color: #808080;
+}
+
+.nav li.active {
+  background: #f8c668;
+  color: #000;
+}
+
+.main-content {
+  background: #f8c668;
+  padding: 10px 0;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+}
+
+.main-content .calendar-wraper,
+.main-content .list-wraper,
+.main-content .rota-wraper {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Tabs */
+
+.main-content .tabs-wraper {
+  position: relative;
+  display: flex;
+  margin: 0 1.5%;
+  width: 97%;
+}
+
+.main-content .tabs {
+  width: 97%;
+  background: #fffbe4;
+  border-radius: 20px 0 0 20px;
+  overflow: scroll;
+  -ms-overflow-style: none;
+}
+
+.main-content .tabs ul {
+  display: inline-flex;
+  justify-items: flex-end;
+  flex-wrap: nowrap;
+  margin: 0 auto;
+  padding-left: 20px;
+  height: 100%;
+}
+
+.main-content .tabs li {
+  list-style: none;
+  display: inline-flex;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  padding: 3px 5px 5px 5px;
+  margin: 5px 2px 0 0;
+  border-radius: 5px 5px 0 0;
+  background: #fffbe4;
+  border: 1px solid #f8c668;
+  border-bottom: none;
+  color: grey;
+  cursor: pointer;
+}
+
+.main-content .tabs li.active {
+    background: #fff5cb;
+    color: #000;
+}
+
+.main-content .tabs-wraper .add-tab {
+    align-items: center;
+    font-size: 2em;
+    color: #f8c668;
+    padding: 0 7px 0 2px;
+    height: 33px;
+    background: #fffbe4;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+}
+
+.main-content .tabs-wraper .new-tab-form {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    right: 0;
+    border-radius: 20px;
+    width: 0;
+    height: 2em;
+    padding: 0;
+    box-sizing: border-box;
+    background: #fffbe4;
+    overflow: hidden;
+    transition: ease-in-out .3s;
+}
+
+.main-content .new-tab-form .remove {
+    position: absolute;
+    right: 3px;
+}
+
+.main-content .tabs-wraper input {
+    width: 40%;
+    height: 25px;
+}
+
+.main-content .tabs-wraper .new-tab-form .container {
+    position: relative;
+    cursor: pointer;
+    padding-left: 17px;
+    margin: 5px;
+}
+
+.main-content .tabs-wraper .new-tab-form .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    height: 12px;
+    width: 12px;
+    background-color: #fffbe4;
+    border: 1px solid #f8c668;
+    border-radius: 50%;
+}
+
+.container input:checked ~ .checkmark {
+    background-color: #f8c668;
+}
+
+.main-content .tabs-wraper .new-tab-form button {
+    height: 25px;
+}
+
+.main-content .content .form-wraper {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  padding: 0 10px;
+  margin: 0 auto 5px;
+  border: 1px dotted #808080;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* Content */
+
+.main-content .content {
+  position: relative;
+  width: 97%;
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  margin: 0 auto;
+  background: #fff5cb;
+  padding: 5px;
+  border-radius: 20px;
+  overflow: hidden;
+  -ms-overflow-style: none;
+  box-sizing: border-box;
+}
+
+/* Tab settings */
+
+.main-content .content .tab-settings-button {
+  position: absolute;
+  right: 0;
+  margin-right: 5px;
+  font-size: 1.5em;
+  height: 2rem;
+  width: 2rem;
+  border: 1px solid #f8c668;
+  background: #fffbe4;
+  color: #f8c668;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.main-content .content .tab-settings {
+  position: absolute;
+  right: 0;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 0;
+  height: 100%;
+  border-radius: 10px;
+  margin: 0 auto;
+  background: #fffbe4;
+  transition: ease-in-out .3s;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.main-content .content .tab-settings .remove-tab {
+  color: #f00;
+  font-weight: 600;
+  width: 60px;
+  height: 35px;
+  padding: 2px;
+}
+
+.main-content .content .tab-settings label {
+  margin-left: 5px;
+  padding: 3px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px dotted #808080;
+  border-radius: 10px;
+}
+
+.main-content .content .tab-settings input {
+  height: 25px;
+  max-width: 90px;
+  margin-left: 3px;
+}
+
+.main-content .content .tab-settings .remove {
+  margin: 0 3px;
+}
+
+.main-content .content .tab-settings .confirm {
+  margin-left: 5px;
+}
+
+.main-content .content .tab-settings form {
+  display: inline-flex;
+  align-items: center;
+}

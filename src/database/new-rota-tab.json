@@ -1,0 +1,120 @@
+
+    {
+        "tabTitle": "",
+        "showSettings": false,
+        "rotaView": 0,
+        "weeks": [
+            {
+                "weekCommencing": "",
+                "weekHours": 0,
+                "weekIndex": 0,
+                "days": [
+                    {
+                        "dayName": "Monday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Tuesday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Wednesday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Thursday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Friday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Saturday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Sunday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    }
+                ]
+            },
+            {
+                "weekCommencing": "",
+                "weekHours": 0,
+                "weekIndex": 1,
+                "days": [
+                    {
+                        "dayName": "Monday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Tuesday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Wednesday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Thursday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Friday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Saturday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Sunday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    }
+                ]
+            }
+        ]
+    }

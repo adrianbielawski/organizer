@@ -1,0 +1,240 @@
+[
+    {
+        "tabTitle": "Asia",
+        "showSettings": false,
+        "rotaView": 0,
+        "weeks": [
+            {
+                "weekCommencing": "20/4/2020",
+                "weekHours": 9,
+                "weekIndex": 0,
+                "days": [
+                    {
+                        "dayName": "Monday",
+                        "breakLength": "01:00",
+                        "shiftStart": "10:00",
+                        "shiftEnd": "20:00",
+                        "dayHours": "9"
+                    },
+                    {
+                        "dayName": "Tuesday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Wednesday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Thursday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Friday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Saturday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Sunday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    }
+                ]
+            },
+            {
+                "weekCommencing": "27/4/2020",
+                "weekHours": 10,
+                "weekIndex": 0,
+                "days": [
+                    {
+                        "dayName": "Monday",
+                        "breakLength": "01:00",
+                        "shiftStart": "10:00",
+                        "shiftEnd": "21:00",
+                        "dayHours": "10"
+                    },
+                    {
+                        "dayName": "Tuesday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Wednesday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Thursday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Friday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Saturday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Sunday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tabTitle": "Adi",
+        "showSettings": false,
+        "rotaView": 0,
+        "weeks": [
+            {
+                "weekCommencing": "20/4/2020",
+                "weekHours": 0,
+                "weekIndex": 0,
+                "days": [
+                    {
+                        "dayName": "Monday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Tuesday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Wednesday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Thursday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Friday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Saturday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Sunday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    }
+                ]
+            },
+            {
+                "weekCommencing": "27/4/2020",
+                "weekHours": 8,
+                "weekIndex": 1,
+                "days": [
+                    {
+                        "dayName": "Monday",
+                        "breakLength": "01:00",
+                        "shiftStart": "10:00",
+                        "shiftEnd": "19:00",
+                        "dayHours": "8"
+                    },
+                    {
+                        "dayName": "Tuesday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Wednesday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Thursday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Friday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Saturday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    },
+                    {
+                        "dayName": "Sunday",
+                        "breakLength": "00:00",
+                        "shiftStart": "00:00",
+                        "shiftEnd": "00:00",
+                        "dayHours": "0"
+                    }
+                ]
+            }
+        ]
+    }
+]

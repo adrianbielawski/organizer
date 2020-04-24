@@ -1,0 +1,109 @@
+.list-wraper .content textarea {
+    width: 100%;
+    flex-grow: 1;
+    height: 100%;
+    padding: 5px 3px;
+    border-radius: 10px;
+    border: 1px dotted #808080;
+    outline: none;
+    background: #fffbe4;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.main-content .tabs::-webkit-scrollbar,
+.main-content .content ul::-webkit-scrollbar,
+.main-content .content textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.list-wraper .content form {
+    display: inline-flex;
+    width: 85%;
+    margin: 8px 0;
+}
+
+.list-wraper .content .add {
+    padding: 5px 7px;
+    height: 35px;
+    border-left: none;
+}
+
+.list-wraper .content .note {
+    display: inline-flex;
+    align-items: center;
+}
+
+.list-wraper .content .note select{
+    height: 25px;
+    margin-right: 5px;
+    border: 1px solid #f8c668;
+    background: #fffbe4;
+    outline: none;
+}
+
+.list-wraper .content .note form {
+    width: auto;
+}
+
+.list-wraper .content .note .button{
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+    border: 1px solid #f8c668;
+    background: #fffbe4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.list-wraper .content .note .bold{
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.list-wraper .content .note .italic{
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+.list-wraper .content button .plus {
+    color: green;
+    font-size: 1.6em;
+}
+
+.list-wraper .content .items {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    overflow: scroll;
+}
+
+.list-wraper .items li {
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    padding: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px dotted grey;
+    border-radius: 10px;
+}
+
+.list-wraper .items li:first-of-type {
+    margin: 0 auto 5px;
+}
+
+.list-wraper .items .item-content {
+    height: 2.2em;
+    padding: 0 0 0 10px;
+    margin-right: 10px;
+    width: 90%;
+    border-radius: 5px;
+    background: #fffbe4;
+    display: flex;
+    align-items: center;
+}

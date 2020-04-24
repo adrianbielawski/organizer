@@ -1,0 +1,201 @@
+.rota-wraper .tabs-wraper .new-tab-form button {
+    height: 25px;
+    margin-left: 5px;
+}
+
+.rota {
+    min-height: 150px;
+}
+
+.rota-wraper .form-wraper .menu-buttons {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 40px;
+}
+
+.rota-wraper .menu-buttons button {
+    margin: 3px 3px 3px 0;
+}
+
+.rota-wraper .form-wraper .view-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.rota-wraper .rota-content-wraper {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    flex-grow: 1;
+    overflow: scroll;
+    max-height: 150px;
+}
+
+.rota-wraper .rota-content-wraper::-webkit-scrollbar {
+    display: none;
+}
+
+.rota-wraper .rota-header {
+    display: inline-flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+    border: 1px solid #f8c668;
+    border-bottom: none;
+    padding: 3px 10px;
+    box-sizing: border-box;
+}
+
+.rota-wraper .days {
+    display: inline-flex;
+    width: 100%;
+}
+
+.rota-wraper .days .day {
+    text-align: center;
+    flex-grow: 1;
+    width: 85px;
+    border: 1px solid #f8c668;
+    border-left: none;
+}
+
+.rota-wraper .day p {
+    padding: 2px 0;
+}
+
+.rota-wraper .days .day:first-of-type {
+    border-left:  1px solid #f8c668;
+}
+
+.rota-wraper .day-hours {
+    border-top:  1px solid #f8c668;
+}
+
+.rota-wraper .day .break {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 1px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.rota-wraper .days .day .break p {
+    width: 50%;
+    text-align: right;
+}
+
+.rota-wraper .day .break span {
+    background: #fffbe4;
+    width: 100%;
+    padding: 2px 0;
+}
+
+.rota-wraper .day .hours {
+    background: #fffbe4;
+    border-top:  .5px solid #f8c668;
+    border-bottom:  .5px solid #f8c668;
+    padding: 2px 0;
+}
+
+.rota-wraper .day-total-hours {
+    padding: 2px 0;
+}
+
+.rota-wraper .edit-day {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    background: #f8c668;
+    padding: 0;
+    z-index: 2;
+}
+
+.rota-wraper .edit-day form {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    background: #fff5cb;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.rota-wraper .edit-day .remove {
+    position: absolute;
+    right: 3px;
+}
+
+.rota-wraper .edit-day .confirm {
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+}
+
+.rota-wraper .edit-day label {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 140px;
+    margin: 3px;
+}
+
+.rota-wraper .edit-day input {
+    width: 70px;
+}
+
+.rota-wraper input[type="time"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+  
+.rota-wraper input[type="time"]::-webkit-clear-button {
+    -webkit-appearance: none;
+}
+
+@media only screen and (max-width: 680px) {
+    .rota-wraper .rota-header {
+        border-bottom: 1px solid #f8c668;
+    }
+
+    .rota-wraper .rota-content-wraper {
+        max-height: unset;
+        margin-bottom: 10px;
+        border:  1px solid #f8c668;
+    }
+
+    .rota-wraper .days {
+        width: 100%;
+        display: flex;
+        flex-shrink: 1;
+        flex-flow: column;
+    }
+    .rota-wraper .days .day {
+        width: 100%;
+        border-left:  1px solid #f8c668;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .rota-wraper .days .day .break {
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+    }
+
+    .rota-wraper .days .day .break p {
+        width: 50%;
+        text-align: right;
+        padding-right: 5px;
+    }
+
+    .rota-wraper .days .day .break span {
+        width: 50%;
+        padding-left: 5px;
+        display: flex;
+        align-items: center;
+        text-align: left;
+    }
+
+}
