@@ -25,55 +25,23 @@ export class RotaContent extends React.Component {
         }
     }
 
-    updateDay = (breakLength, shiftStart, shiftEnd, dayIndex, weekIndex) => {
-        this.props.updateDay(breakLength, shiftStart, shiftEnd, dayIndex, weekIndex)
-    }
-
-    removeItem = (item) => {
-        this.props.removeItem(item);
-    }
-
-    addItem = (item) => {
-        this.props.addItem(item);
-    }
-
-    handleRemoveTab = () => {
-        this.props.removeTab();
-    }
-
-    openSettings = () => {
-        this.props.openSettings();
-    }
-
-    closeSettings = () => {
-        this.props.closeSettings();
-    }
-
-    changeTabTitle = (newTitle) => {
-        this.props.changeTabTitle(newTitle)
-    }
-
-    changeView = (value) => {
-        this.props.changeView(value);
-    }
-
     render() {
         let weeks = [];
         for (let i = 0; i <= this.state.rotaView; i++) {
             weeks.push(
                 <Rota
-                updateDay = {this.updateDay}
+                updateDay = {this.props.updateDay}
                 week = {this.state.weeks[i] && this.state.weeks[i]} key={i}/>)
             }
         
         return (
             <div className="content">
             <RotaMenu
-                handleRemoveTab = {this.handleRemoveTab}
-                openSettings = {this.openSettings}
-                closeSettings = {this.closeSettings}
-                changeTabTitle = {this.changeTabTitle}
-                changeView = {this.changeView}
+                removeTab = {this.props.removeTab}
+                openSettings = {this.props.openSettings}
+                closeSettings = {this.props.closeSettings}
+                changeTabTitle = {this.props.changeTabTitle}
+                changeView = {this.props.changeView}
                 tabTitle = {this.state.tabTitle}
                 showSettings = {this.state.showSettings}/>
                 {weeks}

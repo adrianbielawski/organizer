@@ -24,22 +24,6 @@ export class RotaMenu extends React.Component {
         this.props.changeView(value)
     }
 
-    handleSettings = () => {
-        this.props.openSettings();
-    }
-
-    handleClose = () => {
-        this.props.closeSettings();
-    }
-
-    handleRemoveTab = () => {
-        this.props.handleRemoveTab();
-    }
-
-    changeTabTitle = (newTitle) => {
-        this.props.changeTabTitle(newTitle)
-    }
-
     handleHistory = () => {
         alert('Comming soon!!!')
     }
@@ -56,13 +40,13 @@ export class RotaMenu extends React.Component {
                         <button onClick={this.handleHistory}>History</button>
                     </div>
                 </div>
-                <div className="tab-settings-button" onClick={this.handleSettings}>
+                <div className="tab-settings-button" onClick={this.props.openSettings}>
                     <FontAwesomeIcon icon={faSlidersH}/>
                 </div>
                 <TabSettings
-                    handleClose={this.handleClose}
-                    handleRemoveTab={this.handleRemoveTab}
-                    changeTabTitle={this.changeTabTitle}
+                    closeSettings={this.props.closeSettings}
+                    removeTab={this.props.removeTab}
+                    changeTabTitle={this.props.changeTabTitle}
                     tabTitle={this.state.tabTitle}
                     showSettings={this.state.showSettings}/>
             </div>

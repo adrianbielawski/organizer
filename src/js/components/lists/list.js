@@ -18,46 +18,22 @@ export class List extends React.Component {
         }
     }
 
-    removeItem = (item) => {
-        this.props.removeItem(item);
-    }
-
-    addItem = (item) => {
-        this.props.addItem(item);
-    }
-
-    handleRemoveTab = () => {
-        this.props.removeTab();
-    }
-
-    openSettings = () => {
-        this.props.openSettings();
-    }
-
-    closeSettings = () => {
-        this.props.closeSettings();
-    }
-
-    changeTabTitle = (newTitle) => {
-        this.props.changeTabTitle(newTitle)
-    }
-
     render() {
         let items = this.props.items;
         items = items.map((item, index) => {
             return(
-                <Item key={index} index={index} value={item} removeItem={this.removeItem}/>
+                <Item key={index} index={index} value={item} removeItem={this.props.removeItem}/>
             );
         })
 
         return (
             <div className="content">
                 <ListMenu
-                    addItem={this.addItem}
-                    handleRemoveTab={this.handleRemoveTab}
-                    openSettings={this.openSettings}
-                    closeSettings={this.closeSettings}
-                    changeTabTitle={this.changeTabTitle}
+                    addItem={this.props.addItem}
+                    removeTab={this.props.removeTab}
+                    openSettings={this.props.openSettings}
+                    closeSettings={this.props.closeSettings}
+                    changeTabTitle={this.props.changeTabTitle}
                     title={this.state.title}
                     showSettings={this.state.showSettings}/>
                 <ul className="items">

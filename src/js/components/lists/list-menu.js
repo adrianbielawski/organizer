@@ -30,22 +30,6 @@ export class ListMenu extends React.Component {
         input.focus();
     }
 
-    handleSettings = () => {
-        this.props.openSettings();
-    }
-
-    handleClose = () => {
-        this.props.closeSettings();
-    }
-
-    handleRemoveTab = () => {
-        this.props.handleRemoveTab();
-    }
-
-    changeTabTitle = (newTitle) => {
-        this.props.changeTabTitle(newTitle)
-    }
-
     render() {
         return (
             <div className="form-wraper">
@@ -53,13 +37,13 @@ export class ListMenu extends React.Component {
                     <input  id="new-list-value" type="text" placeholder="Max 30 characters" ref="newItem" autoFocus required/>
                     <button type="submit" className="add"><FontAwesomeIcon icon={faPlus} className="plus"/></button>
                 </form>
-                <div className="tab-settings-button" onClick={this.handleSettings}>
+                <div className="tab-settings-button" onClick={this.props.openSettings}>
                     <FontAwesomeIcon icon={faSlidersH}/>
                 </div>
                 <TabSettings
-                handleClose={this.handleClose}
-                handleRemoveTab={this.handleRemoveTab}
-                changeTabTitle={this.changeTabTitle}
+                closeSettings={this.props.closeSettings}
+                removeTab={this.props.removeTab}
+                changeTabTitle={this.props.changeTabTitle}
                 title={this.state.title}
                 showSettings={this.state.showSettings}/>
             </div>

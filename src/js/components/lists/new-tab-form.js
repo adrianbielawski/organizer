@@ -13,10 +13,6 @@ export class NewTabForm extends React.Component {
         e.target.reset();
     }
 
-    handleRemove = () => {
-        this.props.removeNewTabForm();
-    }
-
     render() {
         let style = {
             width: '0',
@@ -43,7 +39,7 @@ export class NewTabForm extends React.Component {
                     </label>
                     <button type="submit" >Add</button>
                 </form>
-                <FontAwesomeIcon icon={faTimes} className="remove" onClick={this.handleRemove}/>
+                <FontAwesomeIcon icon={faTimes} className="remove" onClick={this.props.removeNewTabForm}/>
             </div>
         )
     }

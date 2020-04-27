@@ -138,7 +138,7 @@ export class Rotas extends React.Component {
         }
     }
 /*
-    loadData() {
+    getData() {
         fetch('http://192.168.1.168/database/organizer/rotas/rotas.json')
             .then(response => response.json())
             .then(data => {
@@ -148,11 +148,11 @@ export class Rotas extends React.Component {
     }
 */
     componentDidMount() {
-        //this.loadData();
+        //this.getData();
         let tab = this.state.activeTab;
         let thisWeek = this.getWeekCommencing('monday', -7);
         let nextWeek = this.getWeekCommencing('monday', 7);
-        let newState = Object.assign({}, this.state);
+        let newState = this.state;
         newState.tabs[tab].weeks[0].weekCommencing = thisWeek;
         newState.tabs[tab].weeks[1].weekCommencing = nextWeek;    
         this.setState({newState});
@@ -187,7 +187,7 @@ export class Rotas extends React.Component {
         let dayHours = workingMs /1000/60/60;
 
         let tab = this.state.activeTab;
-        let state = Object.assign({}, this.state);
+        let state = this.state;
         state.tabs[tab].weeks[weekIndex].days[dayIndex].breakLength = breakLength;
         state.tabs[tab].weeks[weekIndex].days[dayIndex].shiftStart = shiftStart;
         state.tabs[tab].weeks[weekIndex].days[dayIndex].shiftEnd = shiftEnd;
@@ -222,7 +222,7 @@ export class Rotas extends React.Component {
         this.setState({newTabForm: true})
     }
 
-    removeNewTabForm = () => {
+    closeNewTabForm = () => {
         this.setState({newTabForm: false})
     }
 
@@ -454,7 +454,7 @@ export class Rotas extends React.Component {
                         onClick = {this.showNewTabForm}/>
                     <NewTabForm
                         addTab = {this.addTab}
-                        removeNewTabForm = {this.removeNewTabForm}
+                        closeNewTabForm = {this.closeNewTabForm}
                         display = {this.state.newTabForm}/>
                 </div>
                 <RotaContent

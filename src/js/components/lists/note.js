@@ -21,34 +21,6 @@ export class Note extends React.Component {
         }
     }
 
-    handleRemoveTab = () => {
-        this.props.removeTab();
-    }
-
-    openSettings = () => {
-        this.props.openSettings();
-    }
-
-    closeSettings = () => {
-        this.props.closeSettings();
-    }
-
-    changeFont = (color, fontFamily) => {
-        this.props.changeFont(color, fontFamily);
-    }
-    
-    changeFontWeight = () => {
-        this.props.changeFontWeight();
-    }
-    
-    changeFontStyle = () => {
-        this.props.changeFontStyle();
-    }
-
-    changeTabTitle = (newTitle) => {
-        this.props.changeTabTitle(newTitle)
-    }
-
     render() {
         let textareaStyles = {
             fontWeight: '400',
@@ -68,13 +40,13 @@ export class Note extends React.Component {
         return (
             <div className="content">
                 <NoteMenu
-                    handleRemoveTab={this.handleRemoveTab}
-                    openSettings={this.openSettings}
-                    closeSettings={this.closeSettings}
-                    changeFont={this.changeFont}
-                    changeFontWeight={this.changeFontWeight}
-                    changeFontStyle={this.changeFontStyle}
-                    changeTabTitle={this.changeTabTitle}
+                    removeTab={this.props.removeTab}
+                    openSettings={this.props.openSettings}
+                    closeSettings={this.props.closeSettings}
+                    changeFont={this.props.changeFont}
+                    changeFontWeight={this.props.changeFontWeight}
+                    changeFontStyle={this.props.changeFontStyle}
+                    changeTabTitle={this.props.changeTabTitle}
                     title={this.state.title}
                     showSettings={this.state.showSettings}/>
                 <textarea cdkFocusInitial autoFocus style={textareaStyles} defaultValue={this.props.items}></textarea>

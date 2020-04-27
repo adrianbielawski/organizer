@@ -19,14 +19,6 @@ export class TabSettings extends React.Component {
         }
     }
 
-    handleClose = () => {
-        this.props.handleClose();
-    }
-
-    handleRemoveTab = () => {
-        this.props.handleRemoveTab();
-    }
-
     handleTitleChange = () => {
         let newTitle = this.refs.newTitle.value;
         this.props.changeTabTitle(newTitle);
@@ -34,7 +26,7 @@ export class TabSettings extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.handleClose();
+        this.props.closeSettings();
         e.target.reset();
     }
 
@@ -50,7 +42,7 @@ export class TabSettings extends React.Component {
         return (
             <div className="tab-settings" style={style}>
                     <form id="new-tab-title" onSubmit={this.handleSubmit}>
-                        <button className="remove-tab" onClick={this.handleRemoveTab}>Remove tab</button>
+                        <button className="remove-tab" onClick={this.props.removeTab}>Remove tab</button>
                         <label>Tab title
                             <input onChange={this.handleTitleChange} placeholder={tabTitle} ref="newTitle"/>
                             <button type="submit" className="confirm">
@@ -58,7 +50,7 @@ export class TabSettings extends React.Component {
                             </button>
                         </label>
                     </form>
-                <FontAwesomeIcon icon={faTimes} className="remove" onClick={this.handleClose}/>
+                <FontAwesomeIcon icon={faTimes} className="remove" onClick={this.props.closeSettings}/>
             </div>
         )
     }

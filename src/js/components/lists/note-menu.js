@@ -20,34 +20,10 @@ export class NoteMenu extends React.Component {
         }
     }
 
-    handleSettings = () => {
-        this.props.openSettings();
-    }
-
-    handleClose = () => {
-        this.props.closeSettings();
-    }
-
-    handleRemoveTab = () => {
-        this.props.handleRemoveTab();
-    }
-
     handleChange = () => {
         let color = this.refs.color.value;
         let fontFamily = this.refs.fontFamily.value;
         this.props.changeFont(color, fontFamily);
-    }
-
-    handleBold = () => {
-        this.props.changeFontWeight();
-    }
-
-    handleItalic = () => {
-        this.props.changeFontStyle();
-    }
-
-    changeTabTitle = (newTitle) => {
-        this.props.changeTabTitle(newTitle)
     }
 
     render() {
@@ -66,15 +42,15 @@ export class NoteMenu extends React.Component {
                         <option value="roboto mono">Roboto Mono</option>
                     </select>
                 </form>
-                    <div className="button bold" name="bold" value="B" onClick={this.handleBold}>B</div>
-                    <div className="button italic" name="italic" value="I" onClick={this.handleItalic}>I</div>
-                <div className="tab-settings-button" onClick={this.handleSettings}>
+                    <div className="button bold" name="bold" value="B" onClick={this.props.changeFontWeight}>B</div>
+                    <div className="button italic" name="italic" value="I" onClick={this.props.changeFontStyle}>I</div>
+                <div className="tab-settings-button" onClick={this.props.openSettings}>
                     <FontAwesomeIcon icon={faSlidersH}/>
                 </div>
                 <TabSettings
-                    handleClose={this.handleClose}
-                    handleRemoveTab={this.handleRemoveTab}
-                    changeTabTitle={this.changeTabTitle}
+                    closeSettings={this.props.closeSettings}
+                    removeTab={this.props.removeTab}
+                    changeTabTitle={this.props.changeTabTitle}
                     title={this.state.title}
                     showSettings={this.state.showSettings}/>
             </div>

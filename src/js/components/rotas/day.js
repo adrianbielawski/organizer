@@ -28,7 +28,7 @@ export class Day extends React.Component {
         this.props.updateDay(breakLength, shiftStart, shiftEnd, this.state.dayIndex, this.state.weekIndex)
     }
 
-    handleShowEditDay = () => {
+    showEditDay = () => {
         if(this.props.isEditDayOpen) {
             return
         }
@@ -43,7 +43,7 @@ export class Day extends React.Component {
 
     render() {
         return (
-            <div className="day" onClick={this.handleShowEditDay}>
+            <div className="day" onClick={this.showEditDay}>
                 <p>{this.state.day.dayName}</p>
                 <EditDay
                     closeEditDay = {this.closeEditDay}
