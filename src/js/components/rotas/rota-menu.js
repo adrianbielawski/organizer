@@ -3,22 +3,9 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 //Components
-import {TabSettings} from '../nav/tab-settings';
+import { TabSettings } from '../nav/tab-settings';
 
 export class RotaMenu extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {};
-    }
-    
-    componentWillReceiveProps(nextProps) {
-        if(this.props !== nextProps) {
-            this.setState({
-                tabTitle: nextProps.tabTitle,
-                showSettings: nextProps.showSettings,
-            });
-        }
-    }
     handleView = (e) => {
         let value = e.target.value;
         this.props.changeView(value)
@@ -40,15 +27,15 @@ export class RotaMenu extends React.Component {
                         <button onClick={this.handleHistory}>History</button>
                     </div>
                 </div>
-                <div className="tab-settings-button" onClick={this.props.openSettings}>
+                <div className="tab-settings-button" onClick={this.props.toggleShowSettings}>
                     <FontAwesomeIcon icon={faSlidersH}/>
                 </div>
                 <TabSettings
-                    closeSettings={this.props.closeSettings}
+                    toggleShowSettings={this.props.toggleShowSettings}
                     removeTab={this.props.removeTab}
                     changeTabTitle={this.props.changeTabTitle}
-                    tabTitle={this.state.tabTitle}
-                    showSettings={this.state.showSettings}/>
+                    tabTitle={this.props.tabTitle}
+                    showSettings={this.props.showSettings}/>
             </div>
         );
     }

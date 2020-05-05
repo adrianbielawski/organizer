@@ -1,5 +1,6 @@
 import React from 'react';
 import './lists.css';
+import { v4 as uuidv4 } from 'uuid';
 //Fonts
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolderPlus } from '@fortawesome/free-solid-svg-icons';
@@ -18,16 +19,33 @@ export class Lists extends React.Component {
                     tabTitle: 'List0',
                     type: 'list',
                     list: ['aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff', 'ggg', 'hhh', 'iii', 'jjj', 'kkk', 'lll', 'mmm', 'nnn', 'ooo', 'ppp', 'rrr'],
-                    showSettings: false
+                    showSettings: false,
+                    id: 1
                 },
                 {
                     tabTitle: 'Note0',
                     type: 'note',
-                    list: [],
-                    showSettings: false
+                    note: 'dfgdfg',
+                    showSettings: false,
+                    isFontWeightBold: false,
+                    isFontStyleItalic: false,
+                    fontColor: 'red',
+                    fontFamily: 'roboto',
+                    id: 2
+                },
+                {
+                    tabTitle: 'Note1',
+                    type: 'note',
+                    note: 'dg',
+                    showSettings: false,
+                    isFontWeightBold: false,
+                    isFontStyleItalic: false,
+                    fontColor: 'black',
+                    fontFamily: 'unset',
+                    id: 3
                 }
             ],
-            activeTab: 0,
+            activeTab: 1,
             newTabForm: false,
         }
     }
@@ -38,23 +56,20 @@ export class Lists extends React.Component {
         })
     }
 
-    showNewTabForm = () => {
-        this.setState({newTabForm: true})
+    toggleNewTabForm = () => {
+        this.setState({newTabForm: !this.state.newTabForm})
     }
 
-    removeNewTabForm = () => {
-        this.setState({newTabForm: false})
-    }
-
-    addTab = (name, type) => {
-        let title = name;
-        let newTab = {tabTitle: title, type: type, list: []}
+    addTab = (tabTitle, type) => {
+        let newTab = type === 'list' ? 
+            {tabTitle, type, list: [], id: uuidv4()} :
+            {tabTitle, type, note: '', showSettings: false, isFontWeightBold: false, isFontStyleItalic: false, fontColor: 'black', fontFamily: 'unset', id: uuidv4()}
         let tabs = this.state.tabs;
         tabs.push(newTab);
         this.setState({tabs: tabs});
     }
 
-    addItem = (item) => {
+    addListItem = (item) => {
         let tab = this.state.activeTab;
         const list = this.state.tabs[tab].list;
         list.unshift(item);
@@ -63,7 +78,14 @@ export class Lists extends React.Component {
         this.setState(newState);
     }
 
-    removeItem = (item) => {
+    updateNote = (value) => {
+        let tab = this.state.activeTab;
+        let newState = this.state;
+        newState.tabs[tab].note = value;
+        this.setState(newState);
+    }
+
+    removeListItem = (item) => {
         let tab = this.state.activeTab;
         let newList = this.state.tabs[tab].list.filter((val, index) => {
             return item !== index;
@@ -95,42 +117,38 @@ export class Lists extends React.Component {
         });
     }
 
-    openSettings = () => {
+    toggleShowSettings = () => {
         let tab = this.state.activeTab;
         let newState =this.state;
-        newState.tabs[tab].showSettings = true;
+        newState.tabs[tab].showSettings = !newState.tabs[tab].showSettings;
         this.setState(newState);
     }
 
-    closeSettings = () => {
+    changeFontColor = (color) => {
         let tab = this.state.activeTab;
         let newState = this.state;
-        newState.tabs[tab].showSettings = false;
-        this.setState(newState);
+        newState.tabs[tab].fontColor = color;
+        this.setState(newState);        
     }
 
-    changeFont = (color, fontFamily) => {
+    changeFontFamily = (fontFamily) => {
         let tab = this.state.activeTab;
         let newState = this.state;
-        newState.tabs[tab].color = color;
         newState.tabs[tab].fontFamily = fontFamily;
-        this.setState(newState);
-        
+        this.setState(newState);        
     }
     
     changeFontWeight = () => {
         let tab = this.state.activeTab;
         let newState = this.state;
-        let value = newState.tabs[tab].bold;
-        newState.tabs[tab].bold = !value;
+        newState.tabs[tab].isFontWeightBold = !newState.tabs[tab].isFontWeightBold;
         this.setState(newState);        
     }
     
     changeFontStyle = () => {
         let tab = this.state.activeTab;
         let newState = this.state;
-        let value = newState.tabs[tab].italic;
-        newState.tabs[tab].italic = !value;
+        newState.tabs[tab].isFontStyleItalic = !newState.tabs[tab].isFontStyleItalic;
         this.setState(newState);  
     }
 
@@ -144,68 +162,68 @@ export class Lists extends React.Component {
     render() {
         let tabs = this.state.tabs;
         let activeTab = this.state.activeTab;
-        let showSettings = this.state.tabs[activeTab].showSettings;
+        let showSettings = showSettings;
 
-        tabs = tabs.map((item, index) => {
+        let tabsArr = tabs.map((item, index) => {
             let active = false
-            let type = this.state.tabs[index].type;
+            let type = tabs[index].type;
 
-            if (index === this.state.activeTab) (
+            if (index === activeTab) (
                 active = true
             )
 
             return(
-                <Tab activateTab={this.activateTab} active={active} index={index} type={type} tabTitle={this.state.tabs[index].tabTitle} key={index}/>
+                <Tab activateTab={this.activateTab} active={active} index={index} type={type} tabTitle={tabs[index].tabTitle} key={index}/>
             );
         })
 
-        let content = <List
-                        openSettings={this.openSettings}
-                        closeSettings={this.closeSettings}
-                        removeItem={this.removeItem}
-                        addItem={this.addItem}
-                        removeTab={this.removeTab}
-                        changeTabTitle={this.changeTabTitle}
-                        title={this.state.tabs[activeTab].tabTitle}
-                        items={this.state.tabs[activeTab].list}
-                        showSettings={showSettings}/>;
-
-        if (this.state.tabs[this.state.activeTab].type === 'note') {
-            content = <Note
-                        changeFont={this.changeFont}
-                        changeFontWeight={this.changeFontWeight}
-                        changeFontStyle={this.changeFontStyle}
-                        openSettings={this.openSettings}
-                        closeSettings={this.closeSettings}
-                        removeTab={this.removeTab}
-                        changeTabTitle={this.changeTabTitle}
-                        title={this.state.tabs[activeTab].tabTitle}
-                        bold={this.state.tabs[activeTab].bold}
-                        italic={this.state.tabs[activeTab].italic}
-                        color={this.state.tabs[activeTab].color}
-                        fontFamily={this.state.tabs[activeTab].fontFamily}
-                        showSettings={showSettings}
-                        items={this.state.tabs[activeTab].list} />;
-        }
+        let content = tabs[activeTab].type === 'note' ? 
+            <Note
+                updateNote={this.updateNote}
+                changeFontColor={this.changeFontColor}
+                changeFontFamily={this.changeFontFamily}
+                changeFontWeight={this.changeFontWeight}
+                changeFontStyle={this.changeFontStyle}
+                toggleShowSettings={this.toggleShowSettings}
+                removeTab={this.removeTab}
+                changeTabTitle={this.changeTabTitle}
+                tabTitle={tabs[activeTab].tabTitle}
+                isFontWeightBold={tabs[activeTab].isFontWeightBold}
+                isFontStyleItalic={tabs[activeTab].isFontStyleItalic}
+                fontColor={tabs[activeTab].fontColor}
+                fontFamily={tabs[activeTab].fontFamily}
+                note={tabs[activeTab].note}
+                showSettings={this.state.tabs[activeTab].showSettings}
+                id={this.state.tabs[activeTab].id} /> :
+            <List
+                toggleShowSettings={this.toggleShowSettings}
+                removeListItem={this.removeListItem}
+                addListItem={this.addListItem}
+                removeTab={this.removeTab}
+                changeTabTitle={this.changeTabTitle}
+                tabTitle={tabs[activeTab].tabTitle}
+                items={tabs[activeTab].list}
+                showSettings={this.state.tabs[activeTab].showSettings}
+                id={this.state.tabs[activeTab].id} />
 
         return (
             <div className="list-wraper">
                 <div className="tabs-wraper">
                     <div className="tabs">
                         <ul>
-                            {tabs}
+                            {tabsArr}
                         </ul>
                     </div>
                     <FontAwesomeIcon
                         icon={faFolderPlus}
                         className="add-tab"
-                        onClick={this.showNewTabForm}/>
+                        onClick={this.toggleNewTabForm}/>
                     <NewTabForm
                         addTab={this.addTab}
-                        removeNewTabForm={this.removeNewTabForm}
+                        toggleNewTabForm={this.toggleNewTabForm}
                         display={this.state.newTabForm}/>
                 </div>
-                    {content}
+                {content}
             </div>
         )
     }

@@ -1,41 +1,27 @@
 import React from 'react';
 //Components
-import {ListMenu} from './list-menu';
-import {Item} from './item';
+import { ListMenu } from './list-menu';
+import { ListItem } from './list-item';
 
 export class List extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if(this.props !== nextProps) {
-            this.setState({
-                title: nextProps.title,
-                showSettings: nextProps.showSettings
-            });
-        }
-    }
-
     render() {
         let items = this.props.items;
-        items = items.map((item, index) => {
+        items = items.map((value, index) => {
             return(
-                <Item key={index} index={index} value={item} removeItem={this.props.removeItem}/>
+                <ListItem key={index} index={index} value={value} removeListItem={this.props.removeListItem}/>
             );
         })
 
         return (
             <div className="content">
                 <ListMenu
-                    addItem={this.props.addItem}
+                    addListItem={this.props.addListItem}
                     removeTab={this.props.removeTab}
-                    openSettings={this.props.openSettings}
-                    closeSettings={this.props.closeSettings}
+                    toggleShowSettings={this.props.toggleShowSettings}
                     changeTabTitle={this.props.changeTabTitle}
-                    title={this.state.title}
-                    showSettings={this.state.showSettings}/>
+                    tabTitle={this.props.tabTitle}
+                    showSettings={this.props.showSettings}
+                    key={this.props.id} />
                 <ul className="items">
                     {items}
                 </ul>

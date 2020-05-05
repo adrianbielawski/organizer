@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import {Nav} from './nav/nav';
-import {MainContent} from './main content/main-content';
+import { Nav } from './nav/nav';
+import { MainContent } from './main content/main-content';
 
 export class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: 1,
+      activeTab: 0,
       screenHeight: window.innerHeight,
       tabs: [
           {
@@ -25,8 +25,8 @@ export class App extends React.Component {
   }
 
   setInnerHeight = () => {
-    const newHeight = window.innerHeight;
-    this.setState({screenHeight: newHeight});
+    const screenHeight = window.innerHeight;
+    this.setState({screenHeight});
   }
     
   activateTab = (index) => {

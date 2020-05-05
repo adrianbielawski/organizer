@@ -1,12 +1,13 @@
 import React from 'react';
 import './rotas.css';
+import { v4 as uuidv4 } from 'uuid';
 //Fonts
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolderPlus } from '@fortawesome/free-solid-svg-icons';
 //Components
 import { NewTabForm } from './new-tab-form';
 import { Tab } from '../nav/tab';
-import {RotaContent} from './rota-content';
+import { RotaContent } from './rota-content';
 
 export class Rotas extends React.Component {
     constructor(props) {
@@ -16,9 +17,10 @@ export class Rotas extends React.Component {
             newTabForm: false,
             tabs: [
                 {
-                    tabTitle: 'New Rota',
+                    tabTitle: 'My Rota',
                     showSettings: false,
                     rotaView: 0,
+                    id: 1,
                     weeks: [
                         {
                             weekCommencing: '',
@@ -172,10 +174,10 @@ export class Rotas extends React.Component {
     }
 
     updateDay = (breakLength, shiftStart, shiftEnd, dayIndex, weekIndex) => {        
-        let start = `01 Jan 2000 ${shiftStart}:00`;
-        let end = `01 Jan 2000 ${shiftEnd}:00`;
-        let breakStart = `01 Jan 2000 00:00:00`;
-        let breakEnd = `01 Jan 2000 ${breakLength}:00`;
+        let start = `01 Jan 1970 ${shiftStart}:00`;
+        let end = `01 Jan 1970 ${shiftEnd}:00`;
+        let breakStart = `01 Jan 1970 00:00:00`;
+        let breakEnd = `01 Jan 1970 ${breakLength}:00`;
 
         start = Date.parse(start);
         end = Date.parse(end);
@@ -218,12 +220,8 @@ export class Rotas extends React.Component {
         })
     }
 
-    showNewTabForm = () => {
-        this.setState({newTabForm: true})
-    }
-
-    closeNewTabForm = () => {
-        this.setState({newTabForm: false})
+    toggleNewTabForm = () => {
+        this.setState({newTabForm: !this.state.newTabForm})
     }
 
     addTab = (tabTitle) => {
@@ -233,6 +231,7 @@ export class Rotas extends React.Component {
             tabTitle: tabTitle,
             showSettings: false,
             rotaView: 0,
+            id: uuidv4(),
             weeks: [
                 {
                     weekCommencing: thisWeek,
@@ -395,17 +394,10 @@ export class Rotas extends React.Component {
         });
     }
 
-    openSettings = () => {
+    toggleShowSettings = () => {
         let tab = this.state.activeTab;
         let newState = this.state;
-        newState.tabs[tab].showSettings = true;
-        this.setState(newState);
-    }
-
-    closeSettings = () => {
-        let tab = this.state.activeTab;
-        let newState = this.state;
-        newState.tabs[tab].showSettings = false;
+        newState.tabs[tab].showSettings = !newState.tabs[tab].showSettings;
         this.setState(newState);
     }
 
@@ -451,23 +443,23 @@ export class Rotas extends React.Component {
                     <FontAwesomeIcon
                         icon = {faFolderPlus}
                         className = "add-tab"
-                        onClick = {this.showNewTabForm}/>
+                        onClick = {this.toggleNewTabForm}/>
                     <NewTabForm
                         addTab = {this.addTab}
-                        closeNewTabForm = {this.closeNewTabForm}
+                        toggleNewTabForm = {this.toggleNewTabForm}
                         display = {this.state.newTabForm}/>
                 </div>
                 <RotaContent
                     updateDay = {this.updateDay}
-                    openSettings = {this.openSettings}
-                    closeSettings = {this.closeSettings}
+                    toggleShowSettings = {this.toggleShowSettings}
                     removeTab = {this.removeTab}
                     changeTabTitle = {this.changeTabTitle}
                     changeView = {this.changeView}
                     tabTitle = {this.state.tabs[activeTab].tabTitle}
                     rotaView = {this.state.tabs[activeTab].rotaView}
                     weeks = {this.state.tabs[activeTab].weeks && this.state.tabs[activeTab].weeks}
-                    showSettings = {showSettings}/>
+                    showSettings = {showSettings}
+                    id = {this.state.tabs[activeTab].id}/>
             </div>
         )
     }

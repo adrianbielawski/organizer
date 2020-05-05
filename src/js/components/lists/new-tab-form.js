@@ -9,7 +9,7 @@ export class NewTabForm extends React.Component {
         const title = this.refs.tabTitle.value;
         const type = document.querySelector('input[name="tab-type"]:checked').value;
         this.props.addTab(title, type);
-        this.props.removeNewTabForm();
+        this.props.toggleNewTabForm();
         e.target.reset();
     }
 
@@ -39,7 +39,7 @@ export class NewTabForm extends React.Component {
                     </label>
                     <button type="submit" >Add</button>
                 </form>
-                <FontAwesomeIcon icon={faTimes} className="remove" onClick={this.props.removeNewTabForm}/>
+                <FontAwesomeIcon icon={faTimes} className="remove" onClick={this.props.toggleNewTabForm}/>
             </div>
         )
     }

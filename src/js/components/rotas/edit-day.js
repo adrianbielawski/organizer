@@ -9,9 +9,7 @@ export class EditDay extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            display: this.props.display,
-            screenWidth: window.innerWidth,
-            dayIndex: this.props.dayIndex
+            screenWidth: window.innerWidth
         };
         this.changeInnerWidth = window.addEventListener('resize', this.setInnerWidth);
     }
@@ -25,14 +23,6 @@ export class EditDay extends React.Component {
         let rotaDiv = document.getElementsByClassName('rota');
         let rotaDivInfo = rotaDiv[0].getBoundingClientRect();
         this.setState({rotaWidth: rotaDivInfo.width})
-    }
-    
-    componentWillReceiveProps(nextProps) {
-        if(this.props !== nextProps) {
-            this.setState({
-                display: nextProps.display
-            });
-        }
     }
 
     handleSubmit = (e) => {
@@ -48,14 +38,14 @@ export class EditDay extends React.Component {
         let left = (this.state.rotaWidth -180) /2;
         let style = {width: '0', height: '0', padding: '0'};
 
-        if(this.state.display && this.state.screenWidth <= 680) {
+        if(this.props.display && this.state.screenWidth <= 680) {
             style = {width: '180px', height: 'auto', padding: '3px', left: `${left}px`}
-            if(this.state.dayIndex == 6) {
+            if(this.props.dayIndex == 6) {
                 style = {width: '180px', height: 'auto', padding: '3px', left: `${left}px`, top: '-45px'}
             }
-        } else if(this.state.display) {
+        } else if(this.props.display) {
             style = {width: '180px', height: 'auto', padding: '3px', left: 'unset'}
-            if(this.state.dayIndex == 6) {
+            if(this.props.dayIndex == 6) {
                 style = {width: '180px', height: 'auto', padding: '3px', right: '0px'}
             }
         }

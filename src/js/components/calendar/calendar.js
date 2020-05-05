@@ -12,15 +12,15 @@ export class Calendar extends React.Component {
         this.state = {
             tabs: [
                 {
-                    title: 'Week',
+                    tabTitle: 'Week',
                     showSettings: false
                 },
                 {
-                    title: 'Month',
+                    tabTitle: 'Month',
                     showSettings: false
                 },
                 {
-                    title: 'Year',
+                    tabTitle: 'Year',
                     showSettings: false
                 }],
             activeTab: 0,
@@ -33,24 +33,39 @@ export class Calendar extends React.Component {
         })
     }
 
-    openSettings = () => {
+    removeTab = () => {
+        if (this.state.tabs.length === 1) {
+            alert("You can't remove this tab. Please add new tab before removing this one")
+            return
+        }
+        const tabsLength = this.state.tabs.length - 1;
         let tab = this.state.activeTab;
-        let newState = Object.assign({}, this.state);
-        newState.tabs[tab].showSettings = true;
-        this.setState(newState);
+        let newTabs = this.state.tabs.filter((val, index) => {
+            return tab !== index;
+        });
+
+        let activeTab = tab;
+        if(tab === tabsLength) {
+            activeTab = tab -1;
+        }
+
+        this.setState({
+            tabs: newTabs,
+            activeTab: activeTab
+        });
     }
 
-    closeSettings = () => {
+    toggleShowSettings = () => {
         let tab = this.state.activeTab;
-        let newState = Object.assign({}, this.state);
-        newState.tabs[tab].showSettings = false;
+        let newState = this.state;
+        newState.tabs[tab].showSettings = !newState.tabs[tab].showSettings;
         this.setState(newState);
     }
 
     changeTabTitle = (newTitle) => {
         let tab = this.state.activeTab;
-        let newState = Object.assign({}, this.state);
-        newState.tabs[tab].title = newTitle;
+        let newState = this.state;
+        newState.tabs[tab].tabTitle = newTitle;
         this.setState(newState);
     }
 
@@ -62,12 +77,12 @@ export class Calendar extends React.Component {
         tabs = tabs.map((item, index) => {
             let active = false
 
-            if (index === this.state.activeTab) (
+            if (index === activeTab) (
                 active = true
             )
 
             return(
-                <Tab activateTab={this.activateTab} active={active} index={index} title={this.state.tabs[index].title}/>
+                <Tab activateTab={this.activateTab} active={active} index={index} tabTitle={this.state.tabs[index].tabTitle}/>
             );
         })
 
@@ -81,12 +96,10 @@ export class Calendar extends React.Component {
                     </div>
                 </div>
                 <CalendarContent
-                    openSettings={this.openSettings}
-                    closeSettings={this.closeSettings}
+                    toggleShowSettings={this.toggleShowSettings}
                     removeTab={this.removeTab}
                     changeTabTitle={this.changeTabTitle}
-                    title={this.state.tabs[activeTab].title}
-                    items={this.state.tabs[activeTab].list}
+                    tabTitle={this.state.tabs[activeTab].tabTitle}
                     showSettings={showSettings}/>
             </div>
         )

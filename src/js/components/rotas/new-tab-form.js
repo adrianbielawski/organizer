@@ -8,7 +8,7 @@ export class NewTabForm extends React.Component {
         e.preventDefault();
         const tabTitle = this.refs.tabTitle.value;
         this.props.addTab(tabTitle);
-        this.props.closeNewTabForm();
+        this.props.toggleNewTabForm();
         e.target.reset();
     }
 
@@ -30,7 +30,7 @@ export class NewTabForm extends React.Component {
                     <input id="new-tab-title" type="text" ref="tabTitle" placeholder="Tab title" required></input>
                     <button type="submit" >Add</button>
                 </form>
-                <FontAwesomeIcon icon={faTimes} className="remove" onClick={this.props.closeNewTabForm}/>
+                <FontAwesomeIcon icon={faTimes} className="remove" onClick={this.props.toggleNewTabForm}/>
             </div>
         )
     }

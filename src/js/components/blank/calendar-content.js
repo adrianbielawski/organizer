@@ -3,40 +3,6 @@ import React from 'react';
 import {CalendarMenu} from './calendar-menu';
 
 export class CalendarContent extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if(this.props !== nextProps) {
-            this.setState({
-                title: nextProps.title,
-                showSettings: nextProps.showSettings
-            });
-        }
-    }
-
-    removeItem = (item) => {
-        this.props.removeItem(item);
-    }
-
-    addItem = (item) => {
-        this.props.addItem(item);
-    }
-
-    handleRemoveTab = () => {
-        this.props.removeTab();
-    }
-
-    openSettings = () => {
-        this.props.openSettings();
-    }
-
-    closeSettings = () => {
-        this.props.closeSettings();
-    }
-
     changeTabTitle = (newTitle) => {
         this.props.changeTabTitle(newTitle)
     }
@@ -45,12 +11,11 @@ export class CalendarContent extends React.Component {
         return (
             <div className="content">
                 <CalendarMenu
-                    handleRemoveTab={this.handleRemoveTab}
-                    openSettings={this.openSettings}
-                    closeSettings={this.closeSettings}
+                    removeTab={this.props.removeTab}
+                    toggleShowSettings={this.props.toggleShowSettings}
                     changeTabTitle={this.changeTabTitle}
-                    title={this.state.title}
-                    showSettings={this.state.showSettings}/>
+                    tabTitle={this.props.tabTitle}
+                    showSettings={this.props.showSettings}/>
             </div>
         )
     }

@@ -6,54 +6,40 @@ export class Day extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            day: this.props.day,
-            dayName: this.props.day.dayName,
-            dayIndex: this.props.dayIndex,
             displayDayEdit: false,
         };
     }
 
-    componentWillReceiveProps(nextProps) {
-        if(this.props !== nextProps) {
-            this.setState({
-                day: nextProps.day,
-                dayIndex: nextProps.dayIndex,
-                weekHours: nextProps.weekHours,
-                weekIndex: nextProps.weekIndex,
-            });
-        }
-    }
-
     updateDay = (breakLength, shiftStart, shiftEnd) => {
-        this.props.updateDay(breakLength, shiftStart, shiftEnd, this.state.dayIndex, this.state.weekIndex)
+        this.props.updateDay(breakLength, shiftStart, shiftEnd, this.props.dayIndex, this.props.weekIndex)
     }
 
     showEditDay = () => {
         if(this.props.isEditDayOpen) {
             return
         }
-        this.props.changeEditDayStatus(true);
+        this.props.toggleIsEditDayOpen();
         this.setState({displayDayEdit: true});
     }
 
     closeEditDay = () => {
         this.setState({displayDayEdit: false});
-        this.props.changeEditDayStatus(false);
+        this.props.toggleIsEditDayOpen();
     }
 
     render() {
         return (
             <div className="day" onClick={this.showEditDay}>
-                <p>{this.state.day.dayName}</p>
+                <p>{this.props.day.dayName}</p>
                 <EditDay
                     closeEditDay = {this.closeEditDay}
                     updateDay = {this.updateDay}
                     display = {this.state.displayDayEdit}
-                    dayIndex = {this.state.dayIndex}/>
+                    dayIndex = {this.props.dayIndex}/>
                 <div className="day-hours">
-                    <div className="break"><p>Break:</p><span>{this.state.day.breakLength}</span></div>
-                    <div className="hours">{this.state.day.shiftStart}<span> - </span>{this.state.day.shiftEnd}</div>
-                    <div className="day-total-hours">{this.state.day.dayHours}</div>
+                    <div className="break"><p>Break:</p><span>{this.props.day.breakLength}</span></div>
+                    <div className="hours">{this.props.day.shiftStart}<span> - </span>{this.props.day.shiftEnd}</div>
+                    <div className="day-total-hours">{this.props.day.dayHours}</div>
                 </div>
             </div>
         );
