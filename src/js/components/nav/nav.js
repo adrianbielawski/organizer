@@ -14,11 +14,8 @@ export class Nav extends React.Component {
         let tabs = this.props.tabs;
 
         let navItems = tabs.map((item, index) => {
-            let active = false;
-
-            if (index === this.props.activeTab) (
-                active = true
-            )
+            let active = index === this.props.activeTab ? true : false;
+            
             return <Tab activateTab={this.props.activateTab} index={index} tabTitle={item.tabTitle} active={active} key={index}/>
         })
 

@@ -6,14 +6,10 @@ export class Tab extends React.Component {
     }
 
     render() {
-        if (this.props.active) {
-            this.style = 'active';
-        } else {
-            this.style = 'inactive';
-        }
-
+        let style = this.props.active ? 'active' : 'inactive';
+        
         return (
-            <li onClick={this.activateTab} className={this.style}>
+            <li onClick={this.activateTab} className={style}>
                 {this.props.tabTitle}
             </li>
         )

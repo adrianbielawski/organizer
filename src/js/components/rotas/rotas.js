@@ -383,11 +383,8 @@ export class Rotas extends React.Component {
             return tab !== index;
         });
 
-        let activeTab = tab;
-        if(tab === tabsLength) {
-            activeTab = tab -1;
-        }
-
+        let activeTab = tab !== tabsLength ? tab : tab -1;
+        
         this.setState({
             tabs: newTabs,
             activeTab: activeTab
@@ -418,14 +415,11 @@ export class Rotas extends React.Component {
     render() {
         let tabs = this.state.tabs;
         let activeTab = this.state.activeTab;
+        
         let showSettings = this.state.tabs[activeTab].showSettings;
 
         tabs = tabs.map((item, index) => {
-            let active = false
-
-            if (index === this.state.activeTab) (
-                active = true
-            )
+            let active = index === activeTab ? true : false;
 
             return(
                 <Tab activateTab = {this.activateTab} active={active} index={index} tabTitle={this.state.tabs[index].tabTitle} key={index}/>

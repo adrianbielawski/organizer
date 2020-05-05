@@ -57,7 +57,7 @@ export class EditDay extends React.Component {
                     <label>Shift start:<input type="time" ref="newShiftStart" defaultValue="11:00"></input></label>
                     <label>Shift end:<input type="time" ref="newShiftEnd" defaultValue="18:00"></input></label>
                     <button type="submit" className="confirm">
-                    <FontAwesomeIcon icon={faCheck}/>
+                        <FontAwesomeIcon icon={faCheck}/>
                     </button>
                 </form>
             </div>

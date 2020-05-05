@@ -9,8 +9,8 @@ export class TabSettings extends React.Component {
         e.preventDefault();
         let newTitle = this.refs.newTitle.value;
         this.props.changeTabTitle(newTitle);
-        this.props.toggleShowSettings();
         e.target.reset();
+        this.props.toggleShowSettings();
     }
 
     handleCloseSettings = () => {
@@ -19,19 +19,13 @@ export class TabSettings extends React.Component {
     }
 
     render() {        
-        let style = {};
-        if(this.props.showSettings) {
-            style = {
-                width: '100%',
-                padding: '0 1px 0 5px',
-            }
-        }
+        let style = this.props.showSettings ? {width: '100%', padding: '0 1px 0 5px'} : {};
         return (
             <div className="tab-settings" style={style}>
                     <form id="new-tab-title" onSubmit={this.handleSubmit}>
                         <button className="remove-tab" onClick={this.props.removeTab}>Remove tab</button>
                         <label>Tab title
-                            <input placeholder={this.props.tabTitle} ref="newTitle"/>
+                            <input placeholder={this.props.tabTitle} ref="newTitle" required/>
                             <button type="submit" className="confirm">
                                 <FontAwesomeIcon icon={faCheck}/>
                             </button>

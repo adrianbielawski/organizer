@@ -106,10 +106,7 @@ export class Lists extends React.Component {
             return tab !== index;
         });
 
-        let activeTab = tab;
-        if(tab === tabsLength) {
-            activeTab = tab -1;
-        }
+        let activeTab = tab !== tabsLength ? tab : tab -1;
 
         this.setState({
             tabs: newTabs,
@@ -160,20 +157,14 @@ export class Lists extends React.Component {
     }
 
     render() {
-        let tabs = this.state.tabs;
-        let activeTab = this.state.activeTab;
-        let showSettings = showSettings;
+        let {tabs} = this.state;
+        let {activeTab} = this.state;
 
         let tabsArr = tabs.map((item, index) => {
-            let active = false
-            let type = tabs[index].type;
-
-            if (index === activeTab) (
-                active = true
-            )
+            let active = index === activeTab ? true : false;
 
             return(
-                <Tab activateTab={this.activateTab} active={active} index={index} type={type} tabTitle={tabs[index].tabTitle} key={index}/>
+                <Tab activateTab={this.activateTab} active={active} index={index} tabTitle={tabs[index].tabTitle} key={index}/>
             );
         })
 
@@ -193,8 +184,8 @@ export class Lists extends React.Component {
                 fontColor={tabs[activeTab].fontColor}
                 fontFamily={tabs[activeTab].fontFamily}
                 note={tabs[activeTab].note}
-                showSettings={this.state.tabs[activeTab].showSettings}
-                id={this.state.tabs[activeTab].id} /> :
+                showSettings={tabs[activeTab].showSettings}
+                id={tabs[activeTab].id} /> :
             <List
                 toggleShowSettings={this.toggleShowSettings}
                 removeListItem={this.removeListItem}
